@@ -1,0 +1,84 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^uestar.cn [NC]
+RewriteRule ^(.*)$ http://www.uestar.cn [L,R=301]
+RewriteBase / 
+# Rewrite 系统规则请勿修改 
+
+RewriteRule  ^games/$   events.php?mod=exercise
+
+RewriteRule  ^talents/$   talents.php
+RewriteRule  ^uezone/$   uezone.php
+RewriteRule  ^live/$   live.php
+RewriteRule  ^jobs/$  jobs.php
+RewriteRule  ^events/$  events.php
+RewriteRule  ^mec/$   mec.php
+
+RewriteRule  ^topics/?$	topics.php?type=all&pageid=topics
+RewriteRule  ^topics/music/?$	topics.php?type=1&pageid=topics
+RewriteRule  ^topics/video/?$	topics.php?type=2&pageid=topics
+RewriteRule  ^topics/show/?$	topics.php?type=3&pageid=topics
+RewriteRule  ^topics/other/?$	topics.php?type=4&pageid=topics
+
+RewriteRule  ^huanlegu/$   huanlegu.php
+RewriteRule  ^cctv1/$   cctv1.php
+RewriteRule  ^creation/$   creation.php?do=index
+
+RewriteRule  ^active/(.*?)(\/seachkey\/(.*?))?(\/pid/(\d+))?/?$   /active.php?do=$1&seachkey=$3&actionId=$5
+
+
+RewriteRule  ^classic/$   classic.php
+RewriteRule  ^uc_([0-9]+)$   /home.php?mod=ucenter&do=index&uid=$1
+RewriteRule  ^classic/([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+).html$   classic.php?%1&weight=$1&height=$2&age=$3&sex=$4&user_type=$5&nativeplace=$6
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule  ^talents/([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+).html$   talents.php?%1&weight=$1&height=$2&age=$3&sex=$4&user_type=$5&nativeplace=$6
+
+RewriteRule  ^u_([0-9]+)$   /home.php?mod=ucenter&do=index&uid=$1
+
+RewriteRule  ^jobs/view_([0-9]+).html$  jobs.php?mod=view&&id=$1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule  ^jobs/([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_(.*).html$    jobs.php?%1&method=$1&salary=$2&type=$3&nativeplace=$4&jobkey=$5
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule  ^mec/(\w*?).html$   mec.php?%1&nativeplace=$1
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule ^topics/(\w+/)?(\w*?)\.html$ /topics.php?mod=topic&topic=$2
+
+RewriteCond %{QUERY_STRING} ^(.*)$
+RewriteRule  ^jobs/([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+)_([a-z0-9-\-]+).html$     jobs.php?%1&method=$1&salary=$2&type=$3&nativeplace=$4
+
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^topic-(.+)\.html$ portal.php?mod=topic&topic=$1&%1 
+
+RewriteRule ^news/(.+)\/$ portal.php?mod=list&catid=$1&%1 
+RewriteRule ^news/$ portal.php?mod=list&catid=1&%1 
+RewriteRule ^news/([0-9]+)\.html$ portal.php?mod=view&aid=$1&%1 
+RewriteRule ^news/([0-9]+)/([0-9]+)\.html$ portal.php?mod=view&aid=$2&%1
+RewriteRule ^about/([0-9]+)\.html$ portal.php?mod=view&aid=$1&%1 
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+
+RewriteRule ^article-([0-9]+)-([0-9]+)\.html$ portal.php?mod=view&aid=$1&page=$2&%1 
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^forum-(\w+)-([0-9]+)\.html$ forum.php?mod=forumdisplay&fid=$1&page=$2&%1 
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^thread-([0-9]+)-([0-9]+)-([0-9]+)\.html$ forum.php?mod=viewthread&tid=$1&extra=page\%3D$3&page=$2&%1 
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^group-([0-9]+)-([0-9]+)\.html$ forum.php?mod=group&fid=$1&page=$2&%1 
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^space-(username|uid)-(.+)\.html$ home.php?mod=space&$1=$2&%1
+RewriteCond %{QUERY_STRING} ^(.*)$ 
+RewriteRule ^([a-z]+)-(.+)\.html$ $1.php?rewrite=$2&%1 
+RewriteRule  ^reg.html$ user.php?mod=reg&type=k
+RewriteRule  ^reg.htm$ user.php?mod=reg&type=k
+
+RewriteRule  ^login.html$ member.php?mod=logging&action=login
+RewriteRule  ^([a-z0-9A-Z_]+)$ index.php
+Options -Indexes
+<IfModule mod_deflate.c>
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css application/x-javascript
+</IfModule>
+ErrorDocument 404 /404.php
+order deny,allow
