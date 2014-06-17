@@ -1,0 +1,8 @@
+<?php
+
+$blockclass = array(
+	'name' => 'ÈË²ÅÀà',
+);
+
+
+?>

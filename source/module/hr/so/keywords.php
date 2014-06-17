@@ -1,0 +1,11 @@
+<?php
+$hotkeywords[1]='北京市';
+$hotkeywords[2]='西城区';
+$hotkeywords[3]='宣武区';
+$hotkeywords[4]='朝阳区';
+$hotkeywords[5]='海淀区';
+$hotkeywords[6]='丰台区';
+$hotkeywords[7]='石景山区';
+$hotkeywords[8]='门头沟区';
+$hotkeywords[9]='房山区';
+$hotkeywords[10]='房山区';

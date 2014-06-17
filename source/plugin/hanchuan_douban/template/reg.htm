@@ -1,0 +1,60 @@
+<!--{template common/header}-->
+<div id="douban_reg">
+<div class="mn" style="width:600px;margin-left: auto;margin-right: auto;" >
+<div class="bm" id="main_message">
+<form method="post" autocomplete="off" name="register" id="registerform" enctype="multipart/form-data"  action="plugin.php?id=hanchuan_douban:regsave">
+<input name="userid" value="{$token['douban_user_id']}" type="hidden">
+<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+<div class="bm_h bbs" id="main_hnav">
+<span class="y">
+<a href="member.php?mod=logging&amp;action=login&amp;referer=http://www.uestar.cn/plugin.php?id=hanchuan_douban:binding" class="xi2">已有帐号？现在登录</a>
+</span>
+<h3 id="layer_reginfo_t" class="xs2">完善帐号信息</h3>
+</div>
+<div class="rfm">
+<table>
+<tr>
+<th><span class="rq">*</span><label for="">类型：</label></th>
+<td><input name="groupid" type="radio" value="21" checked="checked" />艺人&nbsp;&nbsp;
+<input name="groupid" type="radio" value="22" />机构&nbsp;&nbsp;</td> 
+<td class="tipcol">  </td>
+</tr>
+</table>
+</div>
+<div class="rfm">
+<table>
+<tr> 
+<th><span class="rq">*</span><label for="username">用户名:</label></th>
+<td><input type="text" id="username" name="username" class="px" tabindex="1" value="{$username}" autocomplete="off" size="25" maxlength="15" required /></td>
+<td class="tipcol"><i id="tip_username" class="p_tip">用户名由 3 到 15 个字符组成</i><kbd id="chk_username" class="p_chk"></kbd></td>
+</tr>
+</table>
+</div>
+
+<div class="rfm">
+<table>
+<tr>
+<th><span class="rq">*</span><label for="password">密码:</label></th>
+<td><input type="password" id="password" name="password" size="25" tabindex="1" class="px" required /></td>
+<td class="tipcol"><i id="tip_password" class="p_tip">请填写密码</i><kbd id="chk_password" class="p_chk"></kbd></td>
+</tr>
+</table>
+</div>
+
+<div class="rfm">
+<table>
+<tr>
+<th><span class="rq">*</span><label for="email">Email:</label></th>
+<td><input type="text" id="email" name="email" autocomplete="off" size="25" tabindex="1" class="px" value="" required /><br /><em id="emailmore">&nbsp;</em></td>
+<td class="tipcol"><i id="tip_email" class="p_tip">请输入正确的邮箱地址</i><kbd id="chk_email" class="p_chk"></kbd></td>
+</tr>
+</table>
+</div>
+<div class="rfm" style="margin-left: auto;margin-right: auto;" >
+<input type="submit" value="完成">
+</div>
+</form>
+</div>
+</div>
+</div>
+<!--{template common/footer}-->
